@@ -293,7 +293,7 @@ public class ScreenView {
 
         // Dibujar discos en sus posiciones iniciales
         for (Tower tower : towers) {
-            List<Discs> discs = tower.getAllDiscs();
+            Discs[] discs = tower.getDiscsFromBottomToTop();
             for (Discs disc : discs) {
                 Rectangle visual = disc.getVisual();
                 if (!gameArea.getChildren().contains(visual)) {

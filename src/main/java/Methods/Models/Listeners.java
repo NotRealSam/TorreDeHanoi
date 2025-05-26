@@ -123,8 +123,7 @@ public class Listeners {
                         // Si se completó el juego, mostrar animación de victoria
                         if (game.isGameCompleted()) {
                             // Convertir los discos de la torre C a un array
-                            Discs[] victoryDiscs = game.getTowerC().getAllDiscs()
-                                    .toArray(new Discs[0]);
+                            Discs[] victoryDiscs = game.getTowerC().getDiscsFromBottomToTop();
                             
                             // Animar victoria
                             animations.animateVictory(victoryDiscs);

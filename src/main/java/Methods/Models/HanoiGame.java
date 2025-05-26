@@ -273,7 +273,7 @@ public class HanoiGame {
         sb.append("Completado: ").append(isGameCompleted() ? "Sí" : "No").append("\n\n");
 
         for (Tower tower : towers) {
-            sb.append(tower.getDetailedInfo()).append("\n");
+            sb.append(tower.getStackRepresentation()).append("\n");
         }
 
         return sb.toString();
@@ -338,9 +338,9 @@ public class HanoiGame {
 
         for (int level = maxHeight - 1; level >= 0; level--) {
             for (int towerIndex = 0; towerIndex < 3; towerIndex++) {
-                List<Discs> discs = towers[towerIndex].getAllDiscs();
-                if (level < discs.size()) {
-                    sb.append("  ").append(discs.get(level).getSize()).append("\t\t");
+                Discs[] discs = towers[towerIndex].getDiscsFromBottomToTop();
+                if (level < discs.length) {
+                    sb.append("  ").append(discs[level].getSize()).append("\t\t");
                 } else {
                     sb.append("  |\t\t");
                 }
@@ -348,7 +348,7 @@ public class HanoiGame {
             sb.append("\n");
         }
 
-        sb.append("=====\t\t=====\t\t=====\n");
+        sb.append("=====\t\t=====\\t\t=====\n");
         return sb.toString();
     }
 }
